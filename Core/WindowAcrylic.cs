@@ -8,7 +8,7 @@ using System.Windows.Threading;
 
 namespace Pierre.Wpf.Fluent
 {
-    public partial class WindowAcrylic : Freezable
+    public class WindowAcrylic : Freezable
     {
         public static readonly DependencyProperty WindowAcrylicProperty = DependencyProperty.RegisterAttached("WindowAcrylic", typeof(WindowAcrylic), typeof(Window), new PropertyMetadata(null, OnAcrylicChanged));
 
