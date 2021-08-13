@@ -1,0 +1,42 @@
+﻿<Window x:Class="WindowAcrylicDemo.AcrylicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WindowAcrylicDemo"
+        xmlns:fluent="clr-namespace:Pierre.Wpf.Fluent"
+        mc:Ignorable="d"
+        Title="AcrylicWindow" Height="450" Width="800"
+        Style="{DynamicResource GeneralWindowStyle}"
+        DataContext="{Binding Source={x:Static local:App.AcrylicVM}}">
+    <Window.Resources>
+        <Style TargetType="{x:Type Window}" x:Key="GeneralWindowStyle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding EnableWindowChrome}" Value="true">
+                    <Setter Property="WindowChrome.WindowChrome">
+                        <Setter.Value>
+                            <WindowChrome
+                                CaptionHeight="{Binding CaptionHeight}"
+                                UseAeroCaptionButtons="{Binding UseAeroCaptionButtons}"
+                                GlassFrameThickness="{Binding GlassFrameThickness}"
+                                ResizeBorderThickness="{Binding ResizeBorderThickness}"
+                                NonClientFrameEdges="{Binding NonClientFrameEdges}"
+                                CornerRadius="{Binding CornerRadius}" />
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="{Binding IsHitTestVisibleInChrome}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <fluent:WindowAcrylic.WindowAcrylic>
+        <fluent:WindowAcrylic 
+            IsEnable="{Binding EnableWindowAcrylice}"
+            Opacity="{Binding Opacity}"
+            AttachColor="{Binding AttachColor}"
+            ContinuousMode="Debounce" 
+            ContinuousDelayMs="5"/>
+    </fluent:WindowAcrylic.WindowAcrylic>
+    <Grid>
+    </Grid>
+</Window>
