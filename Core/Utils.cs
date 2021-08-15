@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace Pierre.Core
@@ -53,6 +54,20 @@ namespace Pierre.Core
                 };
                 timer.Start();
             };
+        }
+
+        public static Color ColorWithOpacity(Color color, double opacity)
+        {
+            color.A = (byte)(color.A * opacity);
+            return color;
+        }
+
+        public static int ColorToBgr(Color color)
+        {
+            return (color.R << 0)
+                | (color.G << 8)
+                | (color.B << 16)
+                | (color.A << 24);
         }
     }
 }

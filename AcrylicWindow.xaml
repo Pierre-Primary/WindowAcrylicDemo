@@ -42,7 +42,7 @@
             Opacity="{Binding Opacity}"
             AttachColor="{Binding AttachColor}"
             ContinuousMode="Debounce" 
-            ContinuousDelayMs="5"/>
+            ContinuousDelayMs="2"/>
     </fluent:WindowAcrylic.WindowAcrylic>
     <Grid>
     </Grid>
